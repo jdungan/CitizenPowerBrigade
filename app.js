@@ -9,9 +9,7 @@ var routes = require('./routes/index');
 
 var app = express();
 
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+// view engine setup app.set('views', path.join(__dirname, 'views')); app.set('view engine', 'jade');
 
 // uncomment after placing your favicon in /public
 app.use(favicon(__dirname + '/public/img/favicon.jpg'));
@@ -54,5 +52,8 @@ app.use(function(err, req, res, next) {
     });
 });
 
+app.set('port', process.env.PORT || 4013);
 
-module.exports = app;
+server = app.listen(app.get('port'), function() {
+  console.log('Express server listening on port ' + server.address().port);
+});
