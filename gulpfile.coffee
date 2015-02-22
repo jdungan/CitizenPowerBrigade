@@ -1,6 +1,6 @@
 gulp = require 'gulp'
 coffee = require 'gulp-coffee'
-sourcemaps = require 'gulp-sourcemaps'
+# sourcemaps = require 'gulp-sourcemaps'
 nodemon = require 'gulp-nodemon'
 
 gulp.task 'default', ['coffee', 'watch'] 
@@ -9,7 +9,7 @@ gulp.task 'coffee', ->
     .pipe sourcemaps.init()
     .pipe coffee {bare: true}
 		.on 'error', console.log
-    .pipe sourcemaps.write()
+    # .pipe sourcemaps.write()
     .pipe gulp.dest './routes/'
 
 gulp.task 'watch',['coffee'],  ->
