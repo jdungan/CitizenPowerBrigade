@@ -1,0 +1,26 @@
+extends base
+
+block content
+
+   .splash-container.splash
+      form#save_location.pure-form.pure-form-stacked
+          fieldset
+              legend Register a Power Site
+              |         
+              label(for='unit') This Unit #
+              |         
+              input#unit(type='text', placeholder='Unit #')
+              |         
+              label(for='lat') Latitude
+              |         
+              input#lat(type='text', placeholder='latitude')
+              |         
+              label(for='lng') Longitude
+              |         
+              input#lng(type='text', placeholder='longitude')
+              |         
+              label.pure-checkbox(for='remember')
+                input#use_device(type='checkbox')
+                |  Use this device
+              |         
+              button.pure-button.pure-button-primary(type='submit') Tell Someone
