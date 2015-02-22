@@ -1,14 +1,11 @@
 express = require("express")
 router = express.Router()
-
+unit = require './unit'
 # GET home page. 
 router.get "/", (req, res) ->
   res.render "index",
     title: "Citizens Power Brigade"
 
-# router.get "/keet_care.html", (req, res) ->
-#   res.render "keet_care",
-#     title: "Keet Care"
-
+router.use "/unit", unit
 
 module.exports = router
