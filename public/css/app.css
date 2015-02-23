@@ -9,6 +9,8 @@
 }
 
 
+
+
 * {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -137,6 +139,11 @@ a.pure-button-primary {
 }
 
 
+
+form {
+  
+  padding: 50px;
+}
 /*
  * -- SPLASH STYLES --
  * This is the blue top section that appears on the page.

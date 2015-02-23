@@ -10,16 +10,30 @@
 
   nodemon = require('gulp-nodemon');
 
-  gulp.task('default', ['coffee', 'watch']);
+  gulp.task('default', ['coffee-root','coffee-routes', 'coffee-app', 'watch']);
 
-  gulp.task('coffee', function() {
-    return gulp.src('./src/*.coffee').pipe(sourcemaps.init()).pipe(coffee({
+  gulp.task('coffee-routes', function() {
+    return gulp.src('./src/routes/*.coffee').pipe(sourcemaps.init()).pipe(coffee({
       bare: true
     })).on('error', console.log).pipe(sourcemaps.write()).pipe(gulp.dest('./routes/'));
   });
 
-  gulp.task('watch', ['coffee'], function() {
-    return gulp.watch('./src/*.coffee', ['coffee']);
+  gulp.task('coffee-app', function() {
+    return gulp.src('./src/js/*.coffee').pipe(sourcemaps.init()).pipe(coffee({
+      bare: true
+    })).on('error', console.log).pipe(sourcemaps.write()).pipe(gulp.dest('./public/js/'));
+  });
+
+  gulp.task('coffee-root', function() {
+    return gulp.src('./src/*.coffee').pipe(sourcemaps.init()).pipe(coffee({
+      bare: true
+    })).on('error', console.log).pipe(sourcemaps.write()).pipe(gulp.dest('../'));
+  });
+
+  gulp.task('watch', ['coffee-root', 'coffee-routes', 'coffee-app'], function() {
+    gulp.watch('./src/*.coffee', ['coffee-root']);
+    gulp.watch('./src/routes/*.coffee', ['coffee-routes']);
+    return gulp.watch('./src/js/*.coffee', ['coffee-app']);
   });
 
   nodemon({
