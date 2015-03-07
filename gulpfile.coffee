@@ -2,8 +2,7 @@ gulp        = require 'gulp'
 coffee      = require 'gulp-coffee'
 sourcemaps  = require 'gulp-sourcemaps'
 nodemon     = require 'gulp-nodemon'
-_           = require('underscore')
-
+_           = require 'underscore'
 
 coffee_watch = 
   'coffee-routes' :
@@ -15,6 +14,10 @@ coffee_watch =
   'coffee-root':
     src: './src/*.coffee'
     dest: ""
+  'models' :
+    src : './src/models/*.coffee'
+    dest : './models/'
+    
 
 _.each coffee_watch, (value, key, list)->
   gulp.task key, ->
@@ -38,4 +41,4 @@ gulp.task 'watch',watch_list,  ->
   _.each coffee_watch, (value,key,list)->
     gulp.watch value.src, [key]
 
-gulp.task 'default', ['coffee-root','coffee-routes','coffee-app', 'watch'] 
+gulp.task 'default', ['watch']
