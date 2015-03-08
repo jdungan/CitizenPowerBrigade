@@ -5,8 +5,19 @@ Sequelize = require("sequelize");
 basename  = path.basename(module.filename);
 env       = process.env.NODE_ENV || "development";
 config    = require(__dirname + '/../config/config.json')[env];
-sequelize = new Sequelize(config.database, config.username, config.password, config);
 db        = {};
+
+
+if process.env.DATABASE_URL
+  sequelize = new Sequelize process.env.HEROKU_POSTGRESQL_BRONZE_URL, {
+    dialect:  'postgres'
+    protocol: 'postgres'
+    port:     match[4]
+    host:     match[3]
+    logging:  true
+  }
+else
+  sequelize = new Sequelize(config.database, config.username, config.password, config);
 
 
 fs
@@ -27,3 +38,5 @@ db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
 module.exports = db;
+
+
