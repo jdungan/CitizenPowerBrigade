@@ -5,9 +5,9 @@
     "dialect": "postgres"
   },
   "production": {
-    "database": "cpb",
+    "database": "dcfqrg53s7cdsl",
     "dialect": "postgres",
-    "host" : "HEROKU_POSTGRESQL_GOLD_URL",
+    "host" : "//ztlhuywqvxwhsr:KhkMZ2lfGBm2MEF-2ViCW3ufBH@ec2-54-243-187-196.compute-1.amazonaws.com:5432",
     "use_env_variable": "DATABASE_URL"
   }
 }
