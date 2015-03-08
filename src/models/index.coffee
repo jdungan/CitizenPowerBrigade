@@ -9,6 +9,7 @@ db        = {};
 
 
 if process.env.DATABASE_URL
+  match = process.env.DATABASE_URL.match(/postgres:\/\/([^:]+):([^@]+)@([^:]+):(\d+)\/(.+)/)
   sequelize = new Sequelize process.env.DATABASE_URL, {
     dialect:  'postgres'
     protocol: 'postgres'
