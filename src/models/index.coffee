@@ -5,11 +5,8 @@ Sequelize = require("sequelize");
 basename  = path.basename(module.filename);
 env       = process.env.NODE_ENV || "development";
 config    = require(__dirname + '/../config/config.json')[env];
-
 sequelize = new Sequelize(config.database, config.username, config.password, config);
 db        = {};
-
-
 
 
 fs
